@@ -23,7 +23,9 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 	#endif
-
+	
+	auto start = high_resolution_clock::now(); // Record the starting time
+	
 	int m;
 	cin >> m;
 	
@@ -53,25 +55,33 @@ int main() {
 		}
 	}
 
-	cout << "Original Matrix:\n";
+	auto stop = high_resolution_clock::now(); // Record the ending time
+	auto duration = duration_cast<microseconds>(stop - start); // Compute the elapsed time
 
-	for (int i = 0; i < m; i++) {
-		for (int j = 0; j < m; j++) {
-			cout << M[i][j] << " ";
-		}
-		cout << '\n';
-	}
+	cout << '\n';
+	cout << "Time Taken: " << duration_cast<nanoseconds>(duration).count() * 1e-9 << " seconds" << '\n';
 
-	cout << "-------------------------------------\n"; // for better vision of output
+	// cout << '\n';
 
-	cout << "Computed Matrix:\n";
+	// cout << "Original Matrix:\n";
 
-	for (int i = 0; i < m; i++) {
-		for (int j = 0; j < m; j++) {
-			cout << N[i][j] << " ";
-		}
-		cout << '\n';
-	}
+	// for (int i = 0; i < m; i++) {
+	// 	for (int j = 0; j < m; j++) {
+	// 		cout << M[i][j] << " ";
+	// 	}
+	// 	cout << '\n';
+	// }
+
+	// cout << "-------------------------------------\n"; // for better vision of output
+
+	// cout << "Computed Matrix:\n";
+
+	// for (int i = 0; i < m; i++) {
+	// 	for (int j = 0; j < m; j++) {
+	// 		cout << N[i][j] << " ";
+	// 	}
+	// 	cout << '\n';
+	// }
 
 	return 0;
 }
